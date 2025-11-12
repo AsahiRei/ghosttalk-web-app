@@ -43,7 +43,7 @@ export default function Page() {
       } catch (error) {
         toaster.create({
           title: "Sign up error",
-          description: "Please check your email and password.",
+          description: error,
         });
       } finally {
         setLoading(false);
@@ -59,8 +59,10 @@ export default function Page() {
       } catch (error) {
         toaster.create({
           title: "Sign in error",
-          description: "Please check your email and password.",
+          description: error,
         });
+      } finally {
+        setLoading(false);
       }
     }
   };
